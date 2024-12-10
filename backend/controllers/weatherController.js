@@ -2,7 +2,8 @@ const axios = require('axios');
 const db = require('../config/db');
 
 const searchWeather = async (req, res) => {
-  const { city } = req.body;
+  // const { city } = req.body;
+  const city = req.params.city;
 
   try {
 

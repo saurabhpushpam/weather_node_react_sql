@@ -10,7 +10,7 @@ export default function WeatherSearch() {
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const token = localStorage.getItem('token')?.replace(/"/g, ''); // Retrieve token from localStorage
+      const token = localStorage.getItem('token')?.replace(/"/g, '');
 
       if (!token) {
         alert('You are not logged in. Please log in to continue.');
@@ -23,7 +23,7 @@ export default function WeatherSearch() {
             Authorization: `${token}`
           }
         });
-        setUser(response.data.data); // Set user info
+        setUser(response.data.data);
       } catch (err) {
         console.error('Error fetching user info:', err);
         setError('Failed to fetch user information.');
@@ -34,7 +34,7 @@ export default function WeatherSearch() {
   }, []);
 
   const searchWeather = async () => {
-    const token = localStorage.getItem('token')?.replace(/"/g, ''); // Retrieve token from localStorage
+    const token = localStorage.getItem('token')?.replace(/"/g, '');
     if (!token) {
       alert('You are not logged in. Please log in to continue.');
       return;
@@ -49,19 +49,37 @@ export default function WeatherSearch() {
     setError(null);
 
     try {
-      const response = await axios.get('http://localhost:5000/api/search-weather', {
-        params: { city }, // Send city as a query parameter
+      const response = await axios.get(`http://localhost:5000/api/search-weather/${city}`, {
+        // params: { city },
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `${token}`
         }
       });
 
-      setWeather(response.data);
+      // setWeather(response.data);
+      const data = response.data;
+      const filteredWeather = {
+
+        region: data.location.name,
+        province: data.location.region,
+        country: data.location.country,
+        localtime: data.location.localtime,
+
+        temperature: data.current.temperature,
+        weather_description: data.current.weather_descriptions[0],
+        wind_speed: data.current.wind_speed,
+        humidity: data.current.humidity,
+        visibility: data.current.visibility,
+
+      };
+
+      setWeather(filteredWeather);
+
     } catch (err) {
       setError('Error fetching weather. Please try again.');
       console.error('API Error:', err);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
@@ -92,7 +110,7 @@ export default function WeatherSearch() {
       />
       <button
         onClick={searchWeather}
-        disabled={!city || loading} // Disable button if city is empty or loading
+        disabled={!city || loading}
         style={{
           width: '100%',
           padding: '10px',
@@ -121,7 +139,7 @@ export default function WeatherSearch() {
           }}
         >
           <h3>Weather Details</h3>
-          <pre style={{ fontSize: '14px', lineHeight: '1.5' }}>
+          <pre style={{ fontSize: '18px', color: 'blue', lineHeight: '1.5' }}>
             {JSON.stringify(weather, null, 2)}
           </pre>
         </div>

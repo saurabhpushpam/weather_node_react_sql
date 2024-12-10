@@ -10,6 +10,6 @@ user_routes.use(bodyParser.json());
 user_routes.use(bodyParser.urlencoded({ extended: true }));
 
 
-user_routes.get('/search-weather', auth, weather_controller.searchWeather);
+user_routes.get('/search-weather/:city', auth, weather_controller.searchWeather);
 
 module.exports = user_routes;
