@@ -1,0 +1,117 @@
+.dashboard-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+  margin-top: 15px;
+  font-size: 24px;
+  color: #333;
+}
+
+.table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+.dashboard-table th, .dashboard-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.dashboard-table th {
+  background-color: #f4f4f4;
+}
+
+.dashboard-table td {
+  font-size: 16px;
+}
+
+.dashboard-table td .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-table td .user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status.active {
+  color: green;
+}
+
+.status.pending {
+  color: orange;
+}
+
+.status.inactive {
+  color: red;
+}
+
+.logout-container {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.logout-button {
+  padding: 8px 15px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 10px; 
+  }
+
+  .dashboard-header {
+    flex-direction: column; 
+    align-items: flex-start;
+  }
+
+
+  .dashboard-table {
+    font-size: 14px; 
+  }
+
+  .dashboard-table th,
+  .dashboard-table td {
+    padding: 8px; 
+  }
+
+  .dashboard-table td .user-avatar {
+    width: 30px; 
+    height: 30px;
+  }
+}

@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0fcec3, #04465d);
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-box {
+  width: 350px;  
+  background: #22303c;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.header {
+  margin-top: 20px; 
+  margin-bottom: 40px; 
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.avatar {
+  margin-bottom: 20px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar svg {
+  width: 80px; 
+  height: 80px;
+  color: white;
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 5px;
+}
+
+form {
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #2e3e50;
+  margin: 15px 0px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.input-group label {
+  color: white;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: #aaa;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 0.9em;
+  color: white;
+  
+  margin-left: 5px;
+  margin-top: 20px;
+}
+
+.options a {
+  color: #0fcec3;
+  text-decoration: none;
+}
+
+.login-button {
+  background: #0fcec3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+
+}
+
+.login-button:hover {
+  background: #0caea5;
+}
+
+
+
+@media (max-width: 480px) {
+  .login-box {
+    width: 90%; 
+    padding: 15px; 
+
+  }
+
+  .input-group {
+    justify-content: center;
+  }
+
+  .input-icon{
+    margin-left: -5%;
+  }
+  
+}

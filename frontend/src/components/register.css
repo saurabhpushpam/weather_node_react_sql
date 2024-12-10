@@ -1,0 +1,113 @@
+.register-container {
+  width: 400px;
+  margin: 100px auto;
+  background: #1a1a2e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.icon-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.icon-container i {
+  font-size: 60px;
+  color: #00adb5;
+}
+
+.register-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #222831;
+  color: white;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+  border: 1px solid #00adb5;
+}
+  
+.input-icon{
+  color: black;
+}
+
+
+
+button[type="submit"] {
+  width: 100%;
+  background: #00adb5;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: #007f83;
+}
+
+.already-registered {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.already-registered a {
+  color: #00adb5;
+  text-decoration: none;
+}
+
+.already-registered a:hover {
+  text-decoration: underline;
+}
+
+
+
+@media (max-width: 480px) {
+  .register-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  .form-group input {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
