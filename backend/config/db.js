@@ -38,6 +38,55 @@ const NewUser = sequelize.define('NewUser', {
 
 
 
+const SearchReport = sequelize.define('SearchReport', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  city: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  temperature: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+  },
+  weatherDescription: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  windSpeed: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+  },
+  humidity: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
+  visibility: {
+    type: DataTypes.FLOAT,
+    allowNull: true,
+  },
+  searchTime: {
+    type: DataTypes.DATE,
+    defaultValue: Sequelize.NOW,
+  },
+}, {
+  tableName: 'search_report',
+  timestamps: false,
+});
+
+
+
+SearchReport.belongsTo(NewUser, { foreignKey: 'userId', as: 'user' });
+
+NewUser.hasMany(SearchReport, { foreignKey: 'userId', as: 'searchReports' });
+
 
 
 sequelize.sync()
@@ -48,5 +97,5 @@ sequelize.sync()
     console.error('Error syncing database:', err);
   });
 
-module.exports = { sequelize, NewUser };
+module.exports = { sequelize, NewUser, SearchReport };
 

@@ -4,6 +4,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Errror from './components/Error';
 import WeatherSearch from './components/weatherSearch';
+import SearchReportTable from './components/SearchReportTable';
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/" element={<Register />} />
         <Route path="/weather" element={user ? <WeatherSearch /> : <Navigate to="/login" />} />
+        <Route path="/report" element={user ? <SearchReportTable /> : <Navigate to="/login" />} />
         <Route path='*' element={<Errror />} />
 
       </Routes>
@@ -24,25 +26,3 @@ const App = () => {
 
 export default App;
 
-
-
-// import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import Login from './components/Login';
-// import Register from './components/Register';
-// import WeatherSearch from './components/weatherSearch';
-
-// import Errror from './components/Error';
-
-// export default function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//         <Route path="/" element={<Login />} />
-//         <Route path="/register" element={<Register />} />
-//         <Route path="/weather-search" element={<WeatherSearch />} />
-//         <Route path='*' element={<Errror />} />
-//       </Routes>
-//     </Router>
-//   );
-// }

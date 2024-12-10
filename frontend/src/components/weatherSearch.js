@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function WeatherSearch() {
   const [city, setCity] = useState('');
@@ -7,6 +8,8 @@ export default function WeatherSearch() {
   const [loading, setLoading] = useState(false); // For loading state
   const [error, setError] = useState(null); // For error messages
   const [user, setUser] = useState(null); // For storing user info
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -32,6 +35,11 @@ export default function WeatherSearch() {
 
     fetchUserDetails();
   }, []);
+
+
+  const handlereport = () => {
+    navigate('/report');
+  };
 
   const searchWeather = async () => {
     const token = localStorage.getItem('token')?.replace(/"/g, '');
@@ -85,16 +93,22 @@ export default function WeatherSearch() {
 
   return (
     <div style={{ padding: '20px', maxWidth: '400px', margin: '0 auto' }}>
+      {/* <p style={{ color: "white", fontSize: "22px", fontWeight: "900" }}>
+        <Link to="/report">click here for search report</Link>
+      </p> */}
+      <button className="logout-button" style={{ backgroundColor: "#adee09", color: "black", fontSize: "18px", fontWeight: "700", width: "100%" }} onClick={handlereport}>
+        click for search report
+      </button>
       {/* User Info Section */}
       {user && (
-        <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-          <h3>User Information</h3>
-          <p><strong>Name:</strong> {user.name}</p>
-          <p><strong>Email:</strong> {user.email}</p>
+        <div style={{ marginBottom: '20px', marginTop: "20px", textAlign: 'center', width: '100%', height: "15%", backgroundColor: "black" }}>
+          <h3 style={{ color: "yellow", fontSize: "22px", fontWeight: "900" }}>User Information</h3>
+          <p style={{ color: "white", fontSize: "16px", fontWeight: "700" }}><strong>Name:</strong> {user.name}</p>
+          <p style={{ color: "white", fontSize: "16px", fontWeight: "700" }}><strong>Email:</strong> {user.email}</p>
         </div>
       )}
 
-      <h2>Weather Search</h2>
+      <h2 style={{ color: "orange", marginBottom: "10px" }}>Weather Search</h2>
       <input
         type="text"
         placeholder="Enter city"

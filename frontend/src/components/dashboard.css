@@ -89,6 +89,15 @@
 }
 
 
+.top-button{
+  width: 100%;
+  display: flex;  
+}
+
+.logout{
+  margin-left: 90vh;
+}
+
 
 @media (max-width: 480px) {
   .dashboard-container {
